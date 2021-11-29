@@ -1,0 +1,23 @@
+{
+  "name": "sample",
+  "version": "1.0.0",
+  "description": "This is sample nodejs project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev:start": "node index.js"
+  },
+  "keywords": [
+    "sample",
+    "nodejs"
+  ],
+  "author": "Lenin Lawrence",
+  "license": "ISC",
+  "dependencies": {
+    "express": "latest"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0"
+  }
+}
