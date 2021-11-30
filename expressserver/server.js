@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 app.use(express.static('public'));
 
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded())
 
 
 
@@ -32,6 +33,8 @@ app.get("/books/:language", (req, res) => {
     res.json({ data: newBooks })
 })
 
+app.delete("/books/:book")
+app.put()
 /*
 app.post("/books", (req, res) => {
     let data = '';
