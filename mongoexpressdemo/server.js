@@ -3,6 +3,7 @@ require('dotenv').config()
 const mongoose = require("mongoose")
 const app = express()
 const bookRoutes = require("./routes/book.routes");
+const userRoutes = require("./routes/user.routes")
 const bodyParser = require("body-parser")
 const mongoUri = process.env.MONGO_URI;
 
@@ -22,8 +23,11 @@ async function connectDb() {
 
 connectDb();
 
+app.use("/api/v1/auth", userRoutes)
 
-app.use("/api/v1", bookRoutes);
+app.use("/api/v1/book", bookRoutes);
+
+
 
 const port = process.env.PORT
 
