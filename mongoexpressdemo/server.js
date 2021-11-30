@@ -4,7 +4,8 @@ const mongoose = require("mongoose")
 const app = express()
 const bookRoutes = require("./routes/book.routes");
 const userRoutes = require("./routes/user.routes")
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
+const { validateTokenMiddleware } = require("./middlewares/auth.middleware");
 const mongoUri = process.env.MONGO_URI;
 
 app.use(bodyParser.json())
@@ -24,6 +25,8 @@ async function connectDb() {
 connectDb();
 
 app.use("/api/v1/auth", userRoutes)
+
+app.use("/api/v1/book", validateTokenMiddleware)
 
 app.use("/api/v1/book", bookRoutes);
 

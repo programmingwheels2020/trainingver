@@ -35,8 +35,19 @@ const generateToken = (userId) => {
     })
 }
 
+const validateToken = (token) => {
+    return new Promise((resolve, reject) => [
+        jwt.verify(token, jwtSecret, (err, decoded) => {
+            if (err)
+                reject(err)
+            resolve(decoded.userId)
+        })
+    ])
+}
+
 module.exports = {
     HashPassword,
     ComparePassword,
-    generateToken
+    generateToken,
+    validateToken
 }
