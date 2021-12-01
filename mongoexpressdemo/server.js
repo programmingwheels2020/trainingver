@@ -26,7 +26,7 @@ connectDb();
 
 app.use("/api/v1/auth", userRoutes)
 
-app.use("/api/v1/book", validateTokenMiddleware)
+//app.use("/api/v1/book", validateTokenMiddleware)
 
 app.use("/api/v1/book", bookRoutes);
 
@@ -37,3 +37,5 @@ const port = process.env.PORT
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
 })
+
+module.exports = app
