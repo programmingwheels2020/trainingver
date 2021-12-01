@@ -8,8 +8,13 @@ const bodyParser = require("body-parser");
 const { validateTokenMiddleware } = require("./middlewares/auth.middleware");
 const mongoUri = process.env.MONGO_URI;
 const morgan = require('morgan');
-
+const helmet = require("helmet");
+const cors = require("cors")
 app.use(bodyParser.json())
+
+app.use(helmet());
+
+app.use(cors())
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
