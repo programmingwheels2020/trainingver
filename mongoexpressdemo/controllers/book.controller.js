@@ -1,9 +1,14 @@
 const Book = require("../model/book.model");
 const mongoose = require("mongoose")
+const Logger = require("../config/logger.config")
 
 const getBooks = async (req, res, next) => {
     try {
+        Logger.info("This is info log")
+        Logger.debug("This is debug log")
         let result = await Book.find({})
+        Logger.info(JSON.stringify(result));
+
         res.json({ data: result })
     } catch (err) {
         res.status(500).json({ "errMsg": err.message })

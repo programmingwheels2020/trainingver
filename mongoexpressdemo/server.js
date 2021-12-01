@@ -7,8 +7,11 @@ const userRoutes = require("./routes/user.routes")
 const bodyParser = require("body-parser");
 const { validateTokenMiddleware } = require("./middlewares/auth.middleware");
 const mongoUri = process.env.MONGO_URI;
+const morgan = require('morgan');
 
 app.use(bodyParser.json())
+
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
 async function connectDb() {
     try {
